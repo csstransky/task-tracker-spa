@@ -7,14 +7,14 @@ import { Link } from 'react-router-dom';
 
 function TaskList(props) {
   let {users, tasks, dispatch} = props;
-  let prods = _.map(tasks, (p) => {
+  let tasks_list = _.map(tasks, (p) => {
     return <Task key={p.id} task={p} dispatch={dispatch} />
   });
   return <div className="col">
     <Link to={"/new_task"}>
       <button className="btn btn-primary">New Task</button>
     </Link>
-    {prods}
+    {tasks_list}
   </div>;
 }
 

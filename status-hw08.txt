@@ -1,0 +1,41 @@
+
+Web Dev Fall 2018 HW08 Status
+
+Answer the following questions:
+
+
+1. What's your name?
+Cristian Stransky
+
+
+2. What's the URL of the github repo with your work for this HW?
+https://github.com/csstransky/task-tracker-spa
+
+
+3. What's the version number of your github release?
+v1.0
+
+
+4. What's the URL that you deployed to?
+hw09.cstransky.me
+
+
+5. Is your app functionality complete? If not, what's missing?
+I managed to get everything done, except when you actually create a user or task, 
+the page does not go back to the root, meaning that when you hit "Create Task", the 
+button will show it being indented, and an actual Task will be created, but there's 
+not page movement or anything to indicate to the user that a task has been made.
+
+It does make users and tasks though!
+
+
+6. Is your app properly deployed? If not, what went wrong?
+Yes.
+
+
+
+
+And here's a list of tasks for grading comments. Just leave this here:
+ - Development
+ - Deployment
+ - Submission

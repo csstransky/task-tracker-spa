@@ -27,7 +27,6 @@ function Header(props) {
   else {
     session_info = <div className="my-2">
       <p>Logged in as {session.user_name}</p>
-      // TODO make the log out button work
       <button onClick={() => store.dispatch({ type: 'DELETE_SESSION' })}
               className="btn btn-success">Logout</button>
     </div>

@@ -38,9 +38,6 @@ class User extends React.Component {
       <button onClick={(e) => {
           e.preventDefault();
           api.register_user(this.state.name, this.state.password)
-          console.log(this)
-          console.log("Know what we're doing")
-          this.props.history.pushState("/")
         }
       }
       className="btn btn-success">Create User</button>

@@ -6,9 +6,9 @@ import api from './api';
 import { Link } from 'react-router-dom';
 
 function NewTask(props) {
-  let prods = Task(props)
+  let tasks = Task(props)
   return <div className="col">
-    {prods}
+    {tasks}
   </div>;
 }
 
@@ -38,10 +38,10 @@ function Task(props) {
 }
 
 function CreateUserOptions(users) {
-  let prods = _.map(users, (user) => {
+  let tasks = _.map(users, (user) => {
     return <option value={user.id}>{user.name}</option>
   });
-  return prods;
+  return tasks;
 }
 
 function state2props(state) {

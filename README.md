@@ -1,11 +1,11 @@
-# Task Tracker  
-Uses Elixir and Ecto (with PostgreSQL) to assign, create, and delete users and
+# Task Tracker Single Page Application
+Uses React with Redux (with PostgreSQL) to create users and
 tasks to a local database, all in an integrated web format. The UI is mainly
 comprised of Bootstrap.
 
 ## Demo
 
-Use the task tracker here: [hw07.cstransky.me](http://hw07.cstransky.me).
+Use the task tracker here: [hw09.cstransky.me](http://hw09.cstransky.me).
 
 ### Phoenix Local Deployment
 To start your Phoenix server:
