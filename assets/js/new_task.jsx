@@ -13,10 +13,7 @@ function NewTask(props) {
     {prods}
   </div>;
 }
-let prods = _.map(tasks, (p) => {
-  let count = counts.get(p.id) || 1;
-  return <Task key={p.id} task={p} count={count} dispatch={dispatch} />
-});
+
 function Task(props) {
   let {users, dispatch} = props;
   let options = CreateUserOptions(users);
@@ -31,18 +28,24 @@ function Task(props) {
     <p>User:
       <select id="user">
         {options}
-        <option value="null">None</option>
       </select>
     </p>
     <button onClick={() => api.create_task(
-      document.getElementById("title").value,
-      document.getElementById("desc").value,
-      document.getElementById("complete").checked,
-      document.getElementById("time").value,
-      document.getElementById("user").value,
-    )}
+              document.getElementById("title").value,
+              document.getElementById("desc").value,
+              document.getElementById("complete").checked,
+              document.getElementById("time").value,
+              document.getElementById("user").value,
+            )}
             className="btn btn-success">Create Task</button>
   </div>;
+}
+
+function CreateUserOptions(users) {
+  let prods = _.map(users, (user) => {
+    return <option value={user.id}>{user.name}</option>
+  });
+  return prods;
 }
 
 function state2props(state) {

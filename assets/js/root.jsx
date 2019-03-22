@@ -16,7 +16,6 @@ import NewUser from './new_user';
 import history from './history';
 
 export default function root_init(node, store) {
-  store.dispatch({type: "TASK_LIST", data: window.tasks})
   ReactDOM.render(
     <Provider store={store}>
       <Root />

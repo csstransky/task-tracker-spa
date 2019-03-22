@@ -28,7 +28,7 @@ function tasks(state = [], action) {
   case 'TASK_LIST':
     return action.data;
   case 'TASK_ADD':
-    return state.tasks.concat(action.data);
+    return state.concat(action.data);
   default:
     return state;
   }
