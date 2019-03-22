@@ -6,8 +6,6 @@ import api from './api';
 import { Link } from 'react-router-dom';
 
 function NewTask(props) {
-  console.log("TODO TODO")
-  console.log(props)
   let prods = Task(props)
   return <div className="col">
     {prods}
@@ -17,8 +15,6 @@ function NewTask(props) {
 function Task(props) {
   let {users, dispatch} = props;
   let options = CreateUserOptions(users);
-  console.log("TODO PLEASE")
-  console.log(props)
   return <div className="form-group">
     <p>Title: <input id="title" className="form-control"/></p>
     <p>Description: <input id="desc" className="form-control"/></p>

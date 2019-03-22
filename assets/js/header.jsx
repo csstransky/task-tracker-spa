@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import api from './api';
+import store from './store';
 
 function Header(props) {
   let {session} = props;
@@ -27,7 +28,7 @@ function Header(props) {
     session_info = <div className="my-2">
       <p>Logged in as {session.user_name}</p>
       // TODO make the log out button work
-      <button onClick={() => session = null}
+      <button onClick={() => store.dispatch({ type: 'DELETE_SESSION' })}
               className="btn btn-success">Logout</button>
     </div>
   }

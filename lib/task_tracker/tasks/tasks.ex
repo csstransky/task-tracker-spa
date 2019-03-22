@@ -42,8 +42,6 @@ defmodule TaskTracker.Tasks do
       ** (Ecto.NoResultsError)
 
   """
-  #TODO Get rid of this line def get_task!(id), do: Repo.get!(Task, id)
-
   def get_task!(id) do
       Repo.one! from p in Task,
         where: p.id == ^id,

@@ -19,17 +19,7 @@ function TaskList(props) {
 }
 
 function Task(props) {
-  let {task, user, dispatch} = props;
-  console.log("TODO LOOK HERE FOR THE GOODS STUFF")
-  console.log(tasks)
-  // TODO Get rid of this
-  function update(ev) {
-    let action = {
-      type: 'UPDATE_ADD_CART_FORM',
-      task_id: task.id,
-    };
-    dispatch(action);
-  }
+  let {task, dispatch} = props;
   return <div className="card">
     <div className="card-body">
       <h2 className="card-title">{task.title}</h2>
@@ -39,13 +29,6 @@ function Task(props) {
         <strong>Complete:</strong> {task.complete.toString()} <br/>
         <strong>User:</strong> {task.user_name}
       </p>
-      <div className="form-inline">
-        <div className="form-group">
-          <Link to={"/users"}>
-            <button className="btn btn-primary">Edit</button>
-          </Link>
-        </div>
-      </div>
     </div>
   </div>;
 }

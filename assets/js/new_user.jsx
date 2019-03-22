@@ -40,7 +40,7 @@ class User extends React.Component {
           api.register_user(this.state.name, this.state.password)
           console.log(this)
           console.log("Know what we're doing")
-          // TODO: Add something that'll log you in
+          this.props.history.pushState("/")
         }
       }
       className="btn btn-success">Create User</button>
