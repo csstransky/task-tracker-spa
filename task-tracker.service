@@ -1,0 +1,16 @@
+[Unit]
+Description=Task Tracker using PostgreSQL Database
+
+[Service]
+Type=simple
+User=task_tracker
+Group=task_tracker
+Restart=on-failure
+Environment=MIX_ENV=prod "PORT=6837"
+Environment=LANG=en_US.UTF-8
+
+WorkingDirectory=/home/task_tracker/task-tracker
+ExecStart=/home/task_tracker/task-tracker/start.sh
+
+[Install]
+WantedBy=multi-user.target
