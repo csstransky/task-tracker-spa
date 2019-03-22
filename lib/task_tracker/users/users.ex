@@ -37,7 +37,30 @@ defmodule TaskTracker.Users do
   """
   def get_user!(id), do: Repo.get!(User, id)
 
-  @doc """
+  def get_user(id) do
+    Repo.one from u in User,
+      where: u.id == ^id
+  end
+
+  def get_user_by_name(name) do
+    Repo.get_by(User, name: name)
+  end
+
+  def id_to_name(id) do
+    if id == nil do
+      "nil"
+    else
+      user = get_user!(id)
+      user.name
+    end
+  end
+
+  def name_to_id(name) do
+    user = get_user_by_name(name)
+    user.id
+  end
+
+    @doc """
   Authenticates a user.
 
   Returns {:ok, user} on success, or {:error, msg} on failure.

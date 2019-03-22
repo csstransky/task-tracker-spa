@@ -3,14 +3,20 @@ import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import api from './api';
+import { Link } from 'react-router-dom';
 
 function TaskList(props) {
-  let {tasks, counts, dispatch} = props;
+  let {users, tasks, counts, dispatch} = props;
   let prods = _.map(tasks, (p) => {
     let count = counts.get(p.id) || 1;
     return <Task key={p.id} task={p} count={count} dispatch={dispatch} />
   });
-  return <div className="row">
+  console.log("HWOHW")
+  console.log(props)
+  return <div className="col">
+    <Link to={"/new_task"}>
+      <button className="btn btn-primary">New Task</button>
+    </Link>
     {prods}
   </div>;
 }
@@ -25,19 +31,22 @@ function Task(props) {
     };
     dispatch(action);
   }
-  return <div className="card col-4">
+  return <div className="card">
     <div className="card-body">
-      <h2 className="card-title">{task.name}</h2>
+      <h2 className="card-title">{task.title}</h2>
       <p className="card-text">
-        {task.desc} <br/>
-        price: {task.price}
+        {task.desc} <br/><br/>
+        <strong>Time:</strong> {task.time} hours <br/>
+        <strong>Complete:</strong> {task.complete.toString()} <br/>
+        <strong>User:</strong> {task.id}
       </p>
       <div className="form-inline">
         <div className="form-group">
-          <input type="number" className="form-control col-3 m-1" value={count}
+          <input type="number" className="form-control col-3 m-1" value={task.time}
                  onChange={update} />
-          <button className="btn btn-primary m-1"
-                 onClick={() => api.add_to_cart(task.id)}>Add</button>
+          <Link to={"/users"}>
+            <button className="btn btn-primary">Edit</button>
+          </Link>
         </div>
       </div>
     </div>

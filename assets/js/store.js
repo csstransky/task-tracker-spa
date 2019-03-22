@@ -27,6 +27,8 @@ function tasks(state = [], action) {
   switch (action.type) {
   case 'TASK_LIST':
     return action.data;
+  case 'TASK_ADD':
+    return state.tasks.concat(action.data);
   default:
     return state;
   }
@@ -36,6 +38,8 @@ function users(state = [], action) {
   switch (action.type) {
   case 'USER_LIST':
     return action.data;
+  case 'USER_ADD':
+    return state.concat(action.data);
   default:
     return state;
   }
@@ -66,6 +70,7 @@ function login_form(state = login_form0, action) {
   return state;
 }
 
+// Delete TODO
 function add_item_forms(state = new Map(), action) {
   switch (action.type) {
   case 'UPDATE_ADD_CART_FORM':
@@ -80,7 +85,7 @@ function add_item_forms(state = new Map(), action) {
 function root_reducer(state0, action) {
   console.log("reducer", state0, action);
 
-  let reducer = combineReducers({tasks, users, cart, session,
+  let reducer = combineReducers({tasks, users, session,
                                  login_form, add_item_forms});
   let state1 = reducer(state0, action);
 

@@ -25,8 +25,7 @@ defmodule TaskTrackerWeb.Router do
     pipe_through :api
 
     resources "/users", UserController, except: [:new, :edit]
-    resources "/products", ProductController, except: [:new, :edit]
-    resources "/cart_items", CartItemController, except: [:new, :edit]
+    resources "/tasks", TaskController, except: [:new, :edit]
     post "/auth", AuthController, :authenticate
   end
 end

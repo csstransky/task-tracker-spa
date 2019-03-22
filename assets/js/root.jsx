@@ -10,14 +10,16 @@ import api from './api';
 
 import Header from './header';
 import UserList from './user_list';
-import TaskList from './task_list'
-import Cart from './cart';
+import TaskList from './task_list';
+import NewTask from './new_task';
+import NewUser from './new_user';
+import history from './history';
 
 export default function root_init(node, store) {
-  let tasks = window.tasks;
+  store.dispatch({type: "TASK_LIST", data: window.tasks})
   ReactDOM.render(
     <Provider store={store}>
-      <Root tasks={tasks} />
+      <Root />
     </Provider>, node);
 }
 
@@ -31,7 +33,7 @@ class Root extends React.Component {
 
   render() {
     return <div>
-      <Router>
+      <Router history={history}>
         <div>
           <Header />
           <div className="row">
@@ -41,6 +43,12 @@ class Root extends React.Component {
               } />
               <Route path="/users" exact={true} render={() =>
                 <UserList />
+              } />
+              <Route path="/new_task" exact={true} render={() =>
+                <NewTask />
+              } />
+              <Route path="/new_user" exact={true} render={() =>
+                <NewUser />
               } />
             </div>
           </div>

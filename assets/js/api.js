@@ -1,4 +1,5 @@
 import store from './store';
+import history from './history';
 
 class TheServer {
   fetch_path(path, callback) {
@@ -65,6 +66,47 @@ class TheServer {
       (resp) => {
         store.dispatch({
           type: 'NEW_SESSION',
+          data: resp.data,
+        });
+      }
+    );
+  }
+
+  delete_session() {
+    this.send_post(
+      "/api/v1/auth",
+      (resp) => {
+        store.dispatch({
+          type: 'DELETE_SESSION',
+          data: resp.data,
+        });
+      }
+    );
+  }
+
+  register_user(name, password) {
+    this.send_post(
+      "/api/v1/users",
+      {user: {name, password}},
+      (resp) => {
+        history.push("/users")
+        store.dispatch({
+          type: 'USER_ADD',
+          data: resp.data,
+        });
+      }
+    );
+  }
+
+  create_task(title, desc, complete, time, user_id) {
+    time = parseFloat(time);
+    user_id = parseInt(user_id, 10);
+    this.send_post(
+      "/api/v1/tasks",
+      {task: {title, desc, complete, time, user_id}},
+      (resp) => {
+        store.dispatch({
+          type: 'TASK_ADD',
           data: resp.data,
         });
       }

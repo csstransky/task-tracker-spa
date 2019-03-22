@@ -18,9 +18,21 @@ defmodule TaskTracker.Tasks.Task do
   @doc false
   def changeset(task, attrs) do
     task
+    |> precast(attrs)
     |> cast(attrs, [:title, :desc, :time, :complete, :user_id])
-    |> validate_required([:title, :time, :complete, :user_id])
+    |> validate_required([:title, :time, :complete])
     |> validate_positive_time(:time)
+  end
+
+  # Javscript is super annoying, and I have to change %{"complete" => false}
+  # into %{complete: false} here
+  def precast(task, attrs) do
+    task
+    |> Map.put(:complete, attrs["complete"])
+    |> Map.put(:desc, attrs["desc"])
+    |> Map.put(:time, attrs["time"])
+    |> Map.put(:title, attrs["title"])
+    |> Map.put(:user_id, attrs["user_id"])
   end
 
   def validate_positive_time(changeset, field) do

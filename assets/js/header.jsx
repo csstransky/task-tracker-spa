@@ -4,19 +4,31 @@ import _ from 'lodash';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import api from './api';
+
 function Header(props) {
   let {session} = props;
   let session_info;
   if (session == null) {
     session_info = <div className="form-inline my-2">
-      <input type="name" placeholder="name" />
-      <input type="password" placeholder="password" />
-      <button className="btn btn-secondary">Login</button>
+      <input id="name" placeholder="name" />
+      <input id="password" placeholder="password" />
+      <button onClick={() => api.create_session(
+                document.getElementById("name").value,
+                document.getElementById("password").value)
+              }
+              className="btn btn-success">Login</button>
+      <Link to={"/new_user"}>
+        <button className="btn btn-secondary">Register</button>
+      </Link>
     </div>;
   }
   else {
     session_info = <div className="my-2">
-      <p>Logged in as {session.user_id}</p>
+      <p>Logged in as {session.user_name}</p>
+      // TODO make the log out button work
+      <button onClick={() => session = null}
+              className="btn btn-success">Logout</button>
     </div>
   }
 
