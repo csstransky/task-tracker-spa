@@ -6,13 +6,13 @@
 use Mix.Config
 
 # General application configuration
-config :task_tracker,
+config :task_tracker3,
   ecto_repos: [TaskTracker.Repo]
 
 # Configures the endpoint
-config :task_tracker, TaskTrackerWeb.Endpoint,
+config :task_tracker3, TaskTrackerWeb.Endpoint,
   url: [host: "localhost", port: 4000],
-  secret_key_base: "7Dpm1KHaCkpXVmLYnyslKvhQWSc7HP00UfaKWNbCxzkKoZqhhcP/Ne8BVN6UL6Ka",
+  secret_key_base: "",
   render_errors: [view: TaskTrackerWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: TaskTracker.PubSub,
            adapter: Phoenix.PubSub.PG2]
@@ -24,7 +24,6 @@ config :logger, :console,
 
 # Use Jason for JSON parsing in Phoenix and Ecto
 config :phoenix, :json_library, Jason
-config :ecto, :json_library, Jason
 
 
 # Import environment specific config. This must remain at the bottom
