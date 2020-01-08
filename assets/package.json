@@ -2,6 +2,7 @@
   "repository": {},
   "license": "MIT",
   "scripts": {
+    "start": "set HTTPS=true&&react-scripts start",
     "deploy": "webpack --mode production",
     "watch": "webpack --mode development --watch"
   },
