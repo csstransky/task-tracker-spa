@@ -17,7 +17,7 @@ v1.0
 
 
 4. What's the URL that you deployed to?
-hw09.cstransky.me
+hw09.cstransky.com
 
 
 5. Is your app functionality complete? If not, what's missing?

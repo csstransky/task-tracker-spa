@@ -15,7 +15,7 @@ function TaskList(props) {
       <button className="btn btn-primary">New Task</button>
     </Link>
     {tasks_list}
-    <p>Link back to the main domain: <a href="http://cstransky.me/"><u>cstransky.me</u></a>.<br/></p>
+    <p>Link back to the main domain: <a href="http://cstransky.com/"><u>cstransky.com</u></a>.<br/></p>
   </div>;
 }
 

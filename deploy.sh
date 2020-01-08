@@ -5,9 +5,9 @@ export ENV=prod
 export PORT=9823
 export NODEBIN=`pwd`/assets/node_modules/.bin
 export PATH="$PATH:$NODEBIN"
-export SSL_KEY_PATH=/etc/letsencrypt/live/hw09.cstransky.me/privkey.pem
-export SSL_CERT_PATH=/etc/letsencrypt/live/hw09.cstransky.me/cert.pem
-export SSL_CACERT_PATH=/etc/letsencrypt/live/hw09.cstransky.me/chain.pem
+export SSL_KEY_PATH=/etc/letsencrypt/live/hw09.cstransky.com/privkey.pem
+export SSL_CERT_PATH=/etc/letsencrypt/live/hw09.cstransky.com/cert.pem
+export SSL_CACERT_PATH=/etc/letsencrypt/live/hw09.cstransky.com/chain.pem
 
 echo "Building..."
 

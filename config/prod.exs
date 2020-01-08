@@ -13,7 +13,7 @@ config :task_tracker3, TaskTrackerWeb.Endpoint,
   server: true,
   root: ".",
   version: Application.spec(:phoenix_distillery, :vsn),
-  url: [host: "hw09.cstransky.me", port: 443],
+  url: [host: "hw09.cstransky.com", port: 443],
   force_ssl: [hsts: true],
   cache_static_manifest: "priv/static/cache_manifest.json",
   https: [
@@ -23,8 +23,8 @@ config :task_tracker3, TaskTrackerWeb.Endpoint,
     # Note to future Cristian: You need to make sure that the user
     # ("task_tracker3" in this case) actually has permissions to access
     # these two files below.
-    keyfile: "/etc/letsencrypt/live/hw09.cstransky.me/privkey.pem",
-    certfile: "/etc/letsencrypt/live/hw09.cstransky.me/fullchain.pem"
+    keyfile: "/etc/letsencrypt/live/hw09.cstransky.com/privkey.pem",
+    certfile: "/etc/letsencrypt/live/hw09.cstransky.com/fullchain.pem"
   ]
 
 # Do not print debug messages in production
