@@ -1,0 +1,23 @@
+server {
+    listen 80;
+    listen [::]:80;
+
+    # Note to future Cristian: 
+    # $ sudo cp task-tracker3.nginx /etc/nginx/sites-available/
+    # $ sudo ln -s /etc/nginx/sites-available/task-tracker3.nginx /etc/nginx/sites-enabled/task-tracker3.nginx
+    # $ certbot --nginx
+    # During install of the SSL certificate, make sure to ONLY CHOOSE THIS SITE, and
+    # make sure to choose the option to redirect http:// to https:// (it's option "2")
+    server_name hw09.cstransky.me;
+
+    location / {
+        proxy_pass https://localhost:9823;
+    }
+
+    location /socket {
+        proxy_pass https://localhost:9823;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";           
+    }
+}

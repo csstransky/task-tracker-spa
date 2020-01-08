@@ -2,9 +2,12 @@
 
 export MIX_ENV=prod
 export ENV=prod
-export PORT=6837
+export PORT=9823
 export NODEBIN=`pwd`/assets/node_modules/.bin
 export PATH="$PATH:$NODEBIN"
+export SSL_KEY_PATH=/etc/letsencrypt/live/hw09.cstransky.me/privkey.pem
+export SSL_CERT_PATH=/etc/letsencrypt/live/hw09.cstransky.me/cert.pem
+export SSL_CACERT_PATH=/etc/letsencrypt/live/hw09.cstransky.me/chain.pem
 
 echo "Building..."
 
@@ -23,11 +26,12 @@ mix release
 echo "Starting database..."
 mix ecto.create
 mix ecto.migrate
+mix ecto.reset
 
 #echo "Stopping old copy of app, if any..."
 #_build/prod/rel/draw/bin/practice stop || true
 
 echo "Starting app..."
 
-_build/prod/rel/task_tracker/bin/task_tracker foreground
+_build/prod/rel/task_tracker3/bin/task_tracker3 foreground
 

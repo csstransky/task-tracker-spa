@@ -3,7 +3,7 @@ defmodule TaskTracker.MixProject do
 
   def project do
     [
-      app: :task_tracker,
+      app: :task_tracker3,
       version: "0.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env),
